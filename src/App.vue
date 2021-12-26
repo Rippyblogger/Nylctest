@@ -1,6 +1,6 @@
 <template>
 <SideBar/>
-  <div id="nav" class="">
+  <div id="nav" class="font-Roboto">
     <router-view class=""/>
   </div>
 
