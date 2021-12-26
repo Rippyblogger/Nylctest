@@ -1,6 +1,6 @@
 <template>
 	<div class=" bg-brand-black h-screen w-screen text-white px-6">
-		<div class="flex justify-center items-center h-screen flex-col">
+		<div class="flex justify-center items-center h-screen flex-col mr-8">
 			<img id="anim-1" src="../assets/logo.svg" alt="image-logo" />
 			<h3 id="anim-2" class="text-white text-xs my-6 text-center">
 				BUREIKOU - [BOO-REY-KOO] JAPANESE 無礼講 <br> putting everything aside to be
@@ -23,15 +23,15 @@ export default {
 <style lang="css" scoped>
 
 #anim-1{
-    animation: fadeIn 2s ease-in both;
+    animation: fadeIn 1s ease-in both;
 }
 
 #anim-2{
-    animation: fadeIn 5s ease-in both;
+    animation: fadeIn 2s ease-in both;
 }
 
 #anim-3{
-    animation: fadeIn 7s ease-in both;
+    animation: fadeIn 3s ease-in both;
 }
 
 @keyframes fadeIn {

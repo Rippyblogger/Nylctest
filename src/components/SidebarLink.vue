@@ -18,7 +18,7 @@
 <script>
 import { computed } from "@vue/reactivity";
 import { useRoute } from "vue-router";
-import { mapState } from "vuex";
+import { mapState, useStore  } from "vuex";
 
 export default {
 	name: "SidebarLink",
@@ -30,8 +30,10 @@ export default {
 		icon: { type: String, required: true },
 	},
 	setup(props) {
+		const store = useStore();
 		const route = useRoute();
 		const isActive = computed(() => route.path === props.to);
+		return { isActive, collapsed: computed(() => store.state.collapsed) }
 	},
 };
 </script>

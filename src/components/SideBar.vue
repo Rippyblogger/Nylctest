@@ -1,17 +1,17 @@
 <template>
 	<div
-		class="text-white bg-brand-yellow float-right fixed z-10 top-0 right-0 left-0 bottom-0 p-2 flex flex-col sidebar space-y-10"
-		:style="{ width: sidebarWidth }"
+		class="text-white bg-brand-black fixed z-10 top-0 right-0 left-auto bottom-0 p-2 flex flex-col sidebar space-y-10"
+		:style="{ width: sidebarWidth }" ref="side"
 	>
 		<span class="" @click="toggleSide">
 			<i class="fas fa-bars"></i>
 		</span>
 
 		<SidebarLink class="" to="/" icon="fas fa-home">Home</SidebarLink>
-		<SidebarLink class="" to="/dashboard" icon="fas fa-columns">About</SidebarLink>
-		<SidebarLink class="" to="/analytics" icon="fas fa-chart-bar">Services</SidebarLink>
-		<SidebarLink class="" to="/friends" icon="fas fa-users">Portfolio</SidebarLink>
-		<SidebarLink class="" to="/image" icon="fas fa-image">Contact</SidebarLink>
+		<SidebarLink class="" to="/About" icon="fas fa-columns">About</SidebarLink>
+		<SidebarLink class="" to="/Services" icon="fas fa-chart-bar">Services</SidebarLink>
+		<SidebarLink class="" to="/Portfolio" icon="fas fa-users">Portfolio</SidebarLink>
+		<SidebarLink class="" to="/Contact" icon="fas fa-image">Contact</SidebarLink>
 	</div>
 </template>
 
@@ -25,7 +25,15 @@ export default {
 	methods: {
 		toggleSide() {
 			this.$store.commit("toggleSidebar");
+            if(this.$refs.side.style.background = "#161616"){
+                this.$refs.side.style.background = "#CDC152";
+                console.log(this.$refs.side.style.background);
+            }else{
+                this.$refs.side.style.background = "#161616";
+                console.log(this.$refs.side.style.background);
+            }
 		},
+
 	},
 	computed: {
 		...mapState(["collapsed"]),

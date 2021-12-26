@@ -1,8 +1,10 @@
 <template>
-<SideBar class=""/>
-  <div id="nav" class="h-full" :style="{ width: sidebarWidth }">
-    <router-view/>
+<SideBar/>
+  <div id="nav" class="">
+    <router-view class=""/>
   </div>
+
+  
   
   
 </template>
