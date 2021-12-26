@@ -1,14 +1,21 @@
 <template>
-  <div id="nav" class="h-full">
-
+<SideBar class=""/>
+  <div id="nav" class="h-full" :style="{ width: sidebarWidth }">
+    <router-view/>
   </div>
-  <router-view/>
+  
+  
 </template>
 
 <script>
 // import Home from '@/views/Home';
+import {mapGetters } from "vuex";
+import SideBar from '@/components/SideBar.vue'
 export default {
-  
+  components:{SideBar},
+  computed: {
+    ...mapGetters(["sidebarWidth"]),
+  }
 }
 </script>
 
