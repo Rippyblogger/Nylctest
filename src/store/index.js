@@ -2,7 +2,7 @@ import { createStore } from 'vuex'
 
 export default createStore({
 	state: {
-		collapsed: false,
+		collapsed: true,
 		sidebar_width: "180",
 		sidebar_width_collapsed: 38,
 		sidebarWidth: "",
