@@ -1,27 +1,49 @@
 <template>
-    <div>
-        <router-link :to="to" class="flex items-center cursor-pointer relative font-medium select-none m-2 border rounded h-2 text-brand-black hover:text-white active:bg-brand-black active:text-white no-underline" :class="{active: isActive}">
-            <i class="icon" :class="icon"></i>
-            <span v-if="!collapsed">
-                <slot/>
-            </span>
-    </div>
+	<div>
+		<router-link
+			:to="to"
+			class="flex shrink-0 w-1 items-center cursor-pointer relative font-normal text-xl select-none text-center border rounded h-2 text-brand-white hover:text-white active:bg-brand-black active:text-white no-underline"
+			:class="{ active: isActive }"
+		>
+			<i class="flex shrink-0 w-8 mr-4" :class="icon"></i>
+			<transition name="fade">
+				<span v-if="!collapsed">
+					<slot/>
+				</span>
+			</transition>
+		</router-link>
+	</div>
 </template>
 
 <script>
-import { computed } from '@vue/reactivity';
-import {useRoute} from 'vue-router';
-import {mapState} from 'vuex';
+import { computed } from "@vue/reactivity";
+import { useRoute } from "vue-router";
+import { mapState } from "vuex";
 
 export default {
-    name: "SidebarLink",
-    props: {
-        to: {type: String, required: true},
-        icon: {type: String, required: true}
-    },
-    setup(props){
-        const route = useRoute()
-        const isActive = computed(() => route.path === props.to)
-    }
-}
+	name: "SidebarLink",
+	computed: {
+		...mapState(["collapsed"]),
+	},
+	props: {
+		to: { type: String, required: true },
+		icon: { type: String, required: true },
+	},
+	setup(props) {
+		const route = useRoute();
+		const isActive = computed(() => route.path === props.to);
+	},
+};
 </script>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+	transition: opacity 0.1s;
+}
+
+.fade-enter,
+.fade-leave-to {
+	opacity: 0;
+}
+</style>
