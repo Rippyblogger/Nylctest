@@ -5,27 +5,26 @@
 		</div>
 		<div class="grid lg:grid-rows-2 lg:grid-cols-3 gap-y-2 md:gap-4 content-center place-content-center place-items-center">
 			<div v-for="(image,index) in images" :key="index">
-				<img :src="image.src" :alt="image.alt" class="cursor-pointer">
+				<router-link :to="{name: 'PortfolioDetails', params: {id:image.alt}}">
+					<img :src="require(`@/assets/portfolio/${image.src}`)" :alt="image.alt" class="cursor-pointer">
+				</router-link>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
+import {mapState} from 'vuex';
 export default {
 	name: "Portfolio",
 	data() {
 		return {
-			images: [
-				{ alt: "transparent-black", src: require("@/assets/portfolio/transparent.png") },
-				{ alt: "nakanojo", src: require("@/assets/portfolio/nakanojo.png") },
-				{ alt: "ponton", src: require("@/assets/portfolio/ponton.png") },
-				{ alt: "remote", src: require("@/assets/portfolio/remote.png") },
-				{ alt: "frank", src: require("@/assets/portfolio/frank.png") },
-				{ alt: "irish-cottage", src: require("@/assets/portfolio/irish.png") },
-			],
+			
 		};
 	},
+    computed:{
+        ...mapState(["images"])
+    }
 };
 </script>
 
