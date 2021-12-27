@@ -2,10 +2,10 @@
 	<div>
 		<router-link
 			:to="to"
-			class="flex shrink-0 w-1 items-center cursor-pointer relative font-normal text-xl select-none text-center border rounded h-2 text-brand-white hover:text-white active:bg-brand-black active:text-white no-underline"
+			class="flex shrink-0 border-none items-center cursor-pointer relative font-normal text-xl select-none text-center border  text-brand-white hover:text-white active:bg-brand-black active:text-white no-underline"
 			:class="{ active: isActive }"
 		>
-			<i class="flex shrink-0 w-8 mr-4" :class="icon"></i>
+			<!-- <i class="flex shrink-0 w-8 mr-4" :class="icon"></i> -->
 			<transition name="fade">
 				<span v-if="!collapsed">
 					<slot/>
@@ -41,7 +41,7 @@ export default {
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-	transition: opacity 0.1s;
+	transition: opacity 0.5s;
 }
 
 .fade-enter,

@@ -1,17 +1,14 @@
 <template>
-	<div class=" bg-white h-screen w-screen text-white px-6">
-		
+	<SideBar class="text-black" />
+	<div class="about">
+		<h1>This is a contact page</h1>
 	</div>
 </template>
 
 <script>
+import SideBar from "@/components/SideBar.vue";
 export default {
-	name: "Services",
+	name: "Contact",
+	components: { SideBar },
 };
 </script>
-
-<style lang="css" scoped>
-
-
-
-</style>

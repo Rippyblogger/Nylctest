@@ -1,4 +1,5 @@
 <template>
+<SideBar class="text-white"/>
 	<div class=" bg-brand-black h-screen w-screen text-white px-6">
 		<div class="flex justify-center items-center h-screen flex-col mr-8">
 			<img id="anim-1" src="../assets/logo.svg" alt="image-logo" />
@@ -15,8 +16,10 @@
 </template>
 
 <script>
+import SideBar from '@/components/SideBar.vue'
 export default {
 	name: "Home",
+	components:{SideBar},
 };
 </script>
 

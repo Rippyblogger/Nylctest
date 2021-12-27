@@ -1,4 +1,5 @@
 <template>
+<SideBar class="text-black"/>
 	<div
 		class="bg-white h-screen  text-bg-black py-16 grid place-items-center font-Roboto"
 	>
@@ -58,7 +59,7 @@
 <script>
 
 import ContactButton from '../components/ContactButton.vue';
-
+import SideBar from '@/components/SideBar.vue';
 export default {
 	name: "Services",
 	data() {
@@ -103,7 +104,8 @@ export default {
 		};
 	},
 	components: {
-		ContactButton
+		ContactButton,
+		SideBar
 	}
 };
 </script>

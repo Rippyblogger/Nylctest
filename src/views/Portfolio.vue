@@ -1,4 +1,5 @@
 <template>
+<SideBar class="text-black"/>
 	<div class="bg-white h-full  text-brand-black p-3 grid place-content-center place-items-center">
 		<div class="flex justify-center py-3">
 			<img src="@/assets/portfolio/ellipsis.png" alt="Ellipsis" class="cursor-pointer">
@@ -15,6 +16,7 @@
 
 <script>
 import {mapState} from 'vuex';
+import SideBar from '@/components/SideBar.vue'
 export default {
 	name: "Portfolio",
 	data() {
@@ -22,6 +24,7 @@ export default {
 			
 		};
 	},
+	components:{SideBar},
     computed:{
         ...mapState(["images"])
     }
