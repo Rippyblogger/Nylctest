@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="bg-white h-screen w-screen text-bg-black py-16 flex flex-col font-Roboto"
+		class="bg-white h-screen  text-bg-black py-16 grid place-items-center font-Roboto"
 	>
 		<div class="flex flex-row font-normal">
 			<div class="w-40"></div>
@@ -28,20 +28,20 @@
 				<ul
 					v-for="(servicesText, index) in servicesTexts"
 					:key="index"
-					class="flex flex-col space-y-6"
+					class="flex flex-col space-y-6 py-6"
 				>
-					<div class="space-y-2 px-10 min-h-24">
-						<li class="text-xl">{{ servicesText.text1 }}</li>
+					<div class="space-y-2 px-1 md:px-10 min-h-24">
+						<li class="text-lg">{{ servicesText.text1 }}</li>
 						<li class="text-xs text-justify">{{ servicesText.subText1 }}</li>
 					</div>
 
-					<div class="space-y-2 px-10 min-h-24">
-						<li class="text-xl">{{ servicesText.text2 }}</li>
+					<div class="space-y-2 px-1 md:px-10 min-h-24">
+						<li class="text-lg">{{ servicesText.text2 }}</li>
 						<li class="text-xs text-justify">{{ servicesText.subText2 }}</li>
 					</div>
 
-					<div class="space-y-2 px-10 min-h-24">
-						<li class="text-xl">{{ servicesText.text3 }}</li>
+					<div class="space-y-2 px-1 md:px-10 min-h-24">
+						<li class="text-lg">{{ servicesText.text3 }}</li>
 						<li class="text-xs text-justify">{{ servicesText.subText3 }}</li>
 					</div>
 				</ul>
