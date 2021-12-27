@@ -7,7 +7,7 @@
 			<div class="w-40"></div>
 			<div class="font-bold">
 				<h3>Services</h3>
-				<h3>-</h3>
+				<span>&#9866;</span>
 				<p class="text-sm font-normal w-5/6">
 					Services Booreykoo is a branding, web development, design, and
 					marketing firm with more than fourteen years of industry experience,
@@ -57,7 +57,7 @@
 </template>
 
 <script>
-
+import {mapActions} from 'vuex';
 import ContactButton from '../components/ContactButton.vue';
 import SideBar from '@/components/SideBar.vue';
 export default {
@@ -106,6 +106,12 @@ export default {
 	components: {
 		ContactButton,
 		SideBar
+	},
+	computed:{
+		...mapActions(["getAllServices"])
+    },
+	mounted(){
+		this.getAllServices;
 	}
 };
 </script>

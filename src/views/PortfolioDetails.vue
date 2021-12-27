@@ -1,6 +1,6 @@
 <template>
 		<div class="px-2 md:px-32 py-6">
-            <span class="text-2xl cursor-pointer"><i class="fas fa-arrow-left "></i></span>
+            <span class="text-2xl cursor-pointer" @click="$router.go(-1)"><i class="fas fa-arrow-left "></i></span>
 			<div
 				class="grid grid-cols-1 lg:grid-cols-2 gap-16 py-6 "
 			>
@@ -46,6 +46,9 @@ export default {
 			return this.images.find((image) => image.alt == this.portfolioId);
 		},
 	},
+	methods:{
+		
+	}
 };
 </script>
 

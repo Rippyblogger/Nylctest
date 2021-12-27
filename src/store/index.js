@@ -1,4 +1,5 @@
 import { createStore } from "vuex";
+import ContributionServices from "@/services/http-client";
 
 export default createStore({
 	state: {
@@ -14,7 +15,6 @@ export default createStore({
 				text: "Logo design and brand identity pack. Nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam eratinim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit es.Nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam eratinim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.Duis autem vel eum iriure dolor in hendrerit in vulputate velit es.Nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam eratinim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.Duis autem vel eum iriure dolor in hendrerit in vulputate velit es.Nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam eratinim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.Duis autem vel eum iriure dolor in hendrerit in vulputate velit es.Nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam eratinim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.Duis autem vel eum iriure dolor in hendrerit in vulputate velit es.Nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam eratinim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.Duis autem vel eum iriure dolor in hendrerit in vulputate velit es. Nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam eratinim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit es.Nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam eratinim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit es.Nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam eratinim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit es. Nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam eratinim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit es.",
 				insideSrc1: "Kozara.png",
 				headerOne: "Kozara",
-				
 			},
 			{
 				id: 1,
@@ -30,13 +30,41 @@ export default createStore({
 				src: "irish.png",
 			},
 		],
+		userPortfolio: [],
+		webMenu: [],
+		userServices: [],
 	},
 	mutations: {
 		toggleSidebar: (state) => {
 			state.collapsed = !state.collapsed;
 		},
+		setPortfolio: (state, userPortfolio) => {
+			state.userPortfolio = userPortfolio;
+		},
+		setMenu: (state, webMenu) => {
+			state.webMenu = webMenu;
+		},
+		setServices: (state, userServices) => {
+			state.userServices = userServices;
+		},
 	},
-	actions: {},
+	actions: {
+		async getAllPortfolio({ commit }) {
+			await ContributionServices.getPortfolio().then((response) => {
+				commit("setPortfolio", response.data.items);
+			});
+		},
+		async getAllMenu({ commit }) {
+			await ContributionServices.getMenu().then((response) => {
+				commit("setMenu", response.data);
+			});
+		},
+		async getAllServices({ commit }) {
+			await ContributionServices.getServices().then((response) => {
+				commit("setServices", response.data.items);
+			});
+		},
+	},
 	modules: {},
 	getters: {
 		sidebarWidth(state) {

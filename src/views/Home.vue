@@ -16,10 +16,17 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex';
 import SideBar from '@/components/SideBar.vue'
 export default {
 	name: "Home",
 	components:{SideBar},
+	computed:{
+		...mapActions(["getAllMenu"])
+    },
+	mounted(){
+		this.getAllMenu;
+	}
 };
 </script>
 

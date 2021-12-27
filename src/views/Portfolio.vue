@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import {mapState} from 'vuex';
+import {mapState, mapActions} from 'vuex';
 import SideBar from '@/components/SideBar.vue'
 export default {
 	name: "Portfolio",
@@ -26,8 +26,13 @@ export default {
 	},
 	components:{SideBar},
     computed:{
-        ...mapState(["images"])
-    }
+        ...mapState(["images"]),
+		...mapActions(["getAllPortfolio"])
+    },
+	mounted(){
+		this.getAllPortfolio;
+	}
+	
 };
 </script>
 
