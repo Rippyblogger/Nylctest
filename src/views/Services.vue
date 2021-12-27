@@ -6,45 +6,32 @@
 		<div class="flex flex-row font-normal">
 			<div class="w-40"></div>
 			<div class="font-bold">
-				<h3>Services</h3>
+				<h3>{{userServices.title}}</h3>
 				<span>&#9866;</span>
-				<p class="text-sm font-normal w-5/6">
-					Services Booreykoo is a branding, web development, design, and
-					marketing firm with more than fourteen years of industry experience,
-					serving clients worldwide. Welcome to the future of design. Our main
-					goal is not only to rank your website higher but also maintain its
-					high rank once achieved.
+				<p class="text-sm font-normal w-5/6 text-justify">
+					{{userServices.body}}
 				</p>
 			</div>
 		</div>
 
 		<div class="flex flex-row mt-10 h-max">
 			<div id="yellow" class="bg-brand-yellow w-1/12 flex md:justify-center md:items-center text-center">
-				<p class="flip-text  font-bold">Just be yourself!</p>
+				<p class="flip-text  font-bold">{{userServices.sidebar_title}}</p>
 			</div>
 
 			<div
-				class="w-11/12 bg-brand-black flex flex-col md:flex-row text-white justify-evenly p-12 font-normal"
+				class="w-11/12 bg-brand-black grid md:grid-rows-2 md:grid-cols-3 gap-y-10 text-white justify-evenly p-12 font-normal"
 			>
 				<ul
-					v-for="(servicesText, index) in servicesTexts"
+					v-for="(servicesText, index) in userServices.items"
 					:key="index"
-					class="flex flex-col space-y-6 py-6"
+					class=""
 				>
 					<div class="space-y-2 px-1 md:px-10 min-h-24">
-						<li class="text-lg">{{ servicesText.text1 }}</li>
-						<li class="text-xs text-justify">{{ servicesText.subText1 }}</li>
+						<li class="text-2xl">{{ servicesText.name }}</li>
+						<li class="text-xs text-justify">{{ servicesText.body }}</li>
 					</div>
 
-					<div class="space-y-2 px-1 md:px-10 min-h-24">
-						<li class="text-lg">{{ servicesText.text2 }}</li>
-						<li class="text-xs text-justify">{{ servicesText.subText2 }}</li>
-					</div>
-
-					<div class="space-y-2 px-1 md:px-10 min-h-24">
-						<li class="text-lg">{{ servicesText.text3 }}</li>
-						<li class="text-xs text-justify">{{ servicesText.subText3 }}</li>
-					</div>
 				</ul>
 			</div>
 		</div>
@@ -57,7 +44,7 @@
 </template>
 
 <script>
-import {mapActions} from 'vuex';
+import {mapActions, mapState} from 'vuex';
 import ContactButton from '../components/ContactButton.vue';
 import SideBar from '@/components/SideBar.vue';
 export default {
@@ -108,6 +95,7 @@ export default {
 		SideBar
 	},
 	computed:{
+		...mapState({userServices: "userServices"}),
 		...mapActions(["getAllServices"])
     },
 	mounted(){

@@ -10,10 +10,10 @@
 					data-aos-duration="1000"
 					data-aos-delay="100"
 				>
-					<h1 class="font-bold text-xl">{{ details.headerOne }}</h1>
-					<p class="font-bold text-xl">-</p>
+					<h1 class="font-bold text-xl">{{ details.name }}</h1>
+					<span class="font-bold text-xxl">&#9866;</span>
 					<p class="text-justify">
-						{{ details.text }}
+						{{ details.body }}
 					</p>
 				</div>
 				<div
@@ -23,8 +23,8 @@
 					data-aos-delay="100"
 				>
 					<img
-						:src="require(`@/assets/portfolio/${details.insideSrc1}`)"
-						:alt="details.insideSrc1"
+						:src="details.thumb"
+						:alt="details.name"
 					/>
 				</div>
 			</div>
@@ -41,9 +41,9 @@ export default {
 		};
 	},
 	computed: {
-		...mapState(["images"]),
+		...mapState({images: "userPortfolio"}),
 		details() {
-			return this.images.find((image) => image.alt == this.portfolioId);
+			return this.images.find((image) => image.id == this.portfolioId);
 		},
 	},
 	methods:{

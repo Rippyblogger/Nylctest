@@ -4,19 +4,18 @@
     <router-view class=""/>
   </div>
 
-  
-  
-  
+
 </template>
 
 <script>
 // import Home from '@/views/Home';
-import {mapGetters } from "vuex";
+import {mapGetters, mapActions } from "vuex";
 // import SideBar from '@/components/SideBar.vue'
 export default {
   // components:{SideBar},
   computed: {
     ...mapGetters(["sidebarWidth"]),
+    ...mapActions(["getAllServices"]),
   }
 }
 </script>

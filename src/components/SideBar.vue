@@ -20,26 +20,23 @@
 			<i class="fas fa-times"></i>
 		</span>
 
-		<div class="mx-auto text-black flex flex-col h-screen">
-			<div class="space-y-6">
-				<SidebarLink class="" to="/" icon="fas fa-home">Home</SidebarLink>
-				<SidebarLink class="" to="/About" icon="fas fa-columns"
-					>About</SidebarLink
+		<div class=" text-black flex flex-col text-center h-screen">
+			<div class="space-y-2">
+				<div 
+					v-for="(men, index) in webMenu.menu_items"
+					:key="index"  class=" mt-32"
 				>
-				<SidebarLink class="" to="/Services" icon="fas fa-chart-bar"
-					>Services</SidebarLink
-				>
-				<SidebarLink class="" to="/Portfolio" icon="fas fa-users"
-					>Portfolio</SidebarLink
-				>
-				<SidebarLink class="" to="/Contact" icon="fas fa-image"
-					>Contact</SidebarLink
-				>
+					<SidebarLink class="w-full" :to="{path:men.url}" icon="fas fa-home">{{
+						men.name
+					}}</SidebarLink>
 
-				<p class="font-bold">Just be yourself!</p>
+					<!-- <router-link class="w-full"> {{men.name}} </router-link> -->
+				</div>
+
+				<p class="font-bold">{{webMenu.menu_text}}</p>
 			</div>
 
-			<div class="mt-auto w-16 ml-5 flex pb-10">
+			<div class="mt-auto  w-16 ml-32 flex pb-10">
 				<a href="www.facebook.com" class="cursor-pointer">
 					<img src="@/assets/icons/facebook.png" alt="facebook"
 				/></a>
@@ -62,10 +59,17 @@ export default {
 		toggleSide() {
 			this.$store.commit("toggleSidebar");
 		},
+		testing(thi){
+			router.push(thi);
+		}
 	},
 	computed: {
-		...mapState(["collapsed"]),
+		...mapState(["collapsed", "webMenu"]),
 		...mapGetters(["sidebarWidth"]),
+		// ...mapActions(["getAllServices"]),
+	},
+	mounted() {
+		this.getAllMenu;
 	},
 };
 </script>

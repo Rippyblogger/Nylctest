@@ -1,10 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
-import Portfolio from "../views/Portfolio.vue";
-import Services from "../views/Services.vue";
-import About from "../views/About.vue";
-import Contact from "../views/Contact.vue";
-import PortfolioDetails from "../views/PortfolioDetails.vue";
+
 
 const routes = [
 	{
@@ -15,23 +11,16 @@ const routes = [
 	{
 		path: "/Portfolio",
 		name: "Portfolio",
-		component: Portfolio,
+		component: () =>
+			import(/*webpackChunkName: "DestinationDetails" */ "../views/Portfolio"),
 	},
 	{
 		path: "/Services",
 		name: "Services",
-		component: Services,
+		component: () =>
+			import(/*webpackChunkName: "DestinationDetails" */ "../views/Services"),
 	},
-	{
-		path: "/About",
-		name: "About",
-		component: About,
-	},
-	{
-		path: "/Contact",
-		name: "Contact",
-		component: Contact,
-	},
+
 	{
 		path: "/details/:id",
 		name: "PortfolioDetails",
@@ -39,6 +28,10 @@ const routes = [
 			import(
 				/*webpackChunkName: "DestinationDetails" */ "../views/PortfolioDetails"
 			),
+	},
+	{
+		path: "/:pathMatch(.*)*",
+		redirect: "/Home",
 	},
 ];
 
