@@ -1,5 +1,4 @@
 <template>
-<!-- <SideBar/> -->
   <div id="nav" class="font-Roboto">
     <router-view class=""/>
   </div>
@@ -8,14 +7,15 @@
 </template>
 
 <script>
-// import Home from '@/views/Home';
 import {mapGetters, mapActions } from "vuex";
-// import SideBar from '@/components/SideBar.vue'
+import SideBar from '@/components/SideBar.vue'
 export default {
-  // components:{SideBar},
   computed: {
     ...mapGetters(["sidebarWidth"]),
-    ...mapActions(["getAllServices"]),
+    ...mapActions(["getAllServices","getAllMenu"]),
+  },
+  mounted(){
+    this.getAllMenu;
   }
 }
 </script>

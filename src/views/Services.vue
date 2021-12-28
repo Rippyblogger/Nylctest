@@ -1,52 +1,55 @@
 <template>
-<SideBar class="text-black"/>
-	<div
-		class="bg-white h-screen  text-bg-black py-16 grid place-items-center font-Roboto"
-	>
-		<div class="flex flex-row font-normal">
-			<div class="w-40"></div>
-			<div class="font-bold">
-				<h3>{{userServices.title}}</h3>
-				<span>&#9866;</span>
-				<p class="text-sm font-normal w-5/6 text-justify">
-					{{userServices.body}}
-				</p>
-			</div>
-		</div>
-
-		<div class="flex flex-row mt-10 h-max">
-			<div id="yellow" class="bg-brand-yellow w-1/12 flex md:justify-center md:items-center text-center">
-				<p class="flip-text  font-bold">{{userServices.sidebar_title}}</p>
+	<div>
+		<SideBar class="text-black" />
+		<div
+			class="bg-white h-screen text-bg-black py-16 grid place-items-center font-Roboto"
+		>
+			<div class="flex flex-row font-normal">
+				<div class="w-40"></div>
+				<div class="font-bold">
+					<h3>{{ userServices.title }}</h3>
+					<span>&#9866;</span>
+					<p class="text-sm font-normal w-5/6 text-justify">
+						{{ userServices.body }}
+					</p>
+				</div>
 			</div>
 
-			<div
-				class="w-11/12 bg-brand-black grid md:grid-rows-2 md:grid-cols-3 gap-y-10 text-white justify-evenly p-12 font-normal"
-			>
-				<ul
-					v-for="(servicesText, index) in userServices.items"
-					:key="index"
-					class=""
+			<div class="flex flex-row mt-10 h-max">
+				<div
+					id="yellow"
+					class="bg-brand-yellow w-1/12 flex md:justify-center md:items-center text-center"
 				>
-					<div class="space-y-2 px-1 md:px-10 min-h-24">
-						<li class="text-2xl">{{ servicesText.name }}</li>
-						<li class="text-xs text-justify">{{ servicesText.body }}</li>
-					</div>
+					<p class="flip-text font-bold">{{ userServices.sidebar_title }}</p>
+				</div>
 
-				</ul>
+				<div
+					class="w-11/12 bg-brand-black grid md:grid-rows-2 md:grid-cols-3 gap-y-10 text-white justify-evenly p-12 font-normal"
+				>
+					<ul
+						v-for="(servicesText, index) in userServices.items"
+						:key="index"
+						class=""
+					>
+						<div class="space-y-2 px-1 md:px-10 min-h-24">
+							<li class="text-2xl">{{ servicesText.name }}</li>
+							<li class="text-xs text-justify">{{ servicesText.body }}</li>
+						</div>
+					</ul>
+				</div>
 			</div>
-		</div>
 
-
-		<div class="flex justify-center my-8">
-			<ContactButton/>
+			<div class="flex justify-center my-8">
+				<ContactButton />
+			</div>
 		</div>
 	</div>
 </template>
 
 <script>
-import {mapActions, mapState} from 'vuex';
-import ContactButton from '../components/ContactButton.vue';
-import SideBar from '@/components/SideBar.vue';
+import { mapActions, mapState } from "vuex";
+import ContactButton from "../components/ContactButton.vue";
+import SideBar from "@/components/SideBar.vue";
 export default {
 	name: "Services",
 	data() {
@@ -92,15 +95,15 @@ export default {
 	},
 	components: {
 		ContactButton,
-		SideBar
+		SideBar,
 	},
-	computed:{
-		...mapState({userServices: "userServices"}),
-		...mapActions(["getAllServices"])
-    },
-	mounted(){
+	computed: {
+		...mapState({ userServices: "userServices" }),
+		...mapActions(["getAllServices"]),
+	},
+	mounted() {
 		this.getAllServices;
-	}
+	},
 };
 </script>
 

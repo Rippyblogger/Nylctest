@@ -1,36 +1,40 @@
 <template>
-	<SideBar class="text-black" />
-	<div
-		class="bg-white h-full text-brand-black p-3 grid place-content-center place-items-center"
-	>
-		<div class="flex justify-center py-3">
-			<img
-				src="@/assets/portfolio/ellipsis.png"
-				alt="Ellipsis"
-				class="cursor-pointer"
-			/>
-		</div>
+	<div>
+		<SideBar class="text-black" />
 		<div
-			class="grid lg:grid-rows-2 lg:grid-cols-3 gap-y-2 md:gap-4 content-center place-content-center place-items-center"
+			class="bg-white h-full text-brand-black p-3 grid place-content-center place-items-center"
 		>
-			<div v-for="(image, index) in images" :key="index">
-				<router-link
-					:to="{ name: 'PortfolioDetails', params: { id: image.id } }"
-					class="cursor-pointer clickable-container"
-				>
-					<div class="single-news">
-						<img
-							:src="image.thumb"
-							:alt="image.description"
-							class="cursor-pointer"
-						/>
-					</div>
-					<div class="overlay text-left p-6">
-						<div class="overlay-content font-bold text-base">{{image.name}}</div>
-						<span>&#9866;</span>
-						<h3 class="responsive-title text-xs">{{image.description}}</h3>
-					</div>
-				</router-link>
+			<div class="flex justify-center py-3">
+				<img
+					src="@/assets/portfolio/ellipsis.png"
+					alt="Ellipsis"
+					class="cursor-pointer"
+				/>
+			</div>
+			<div
+				class="grid lg:grid-rows-2 lg:grid-cols-3 gap-y-2 md:gap-4 content-center place-content-center place-items-center"
+			>
+				<div v-for="(image, index) in images" :key="index">
+					<router-link
+						:to="{ name: 'PortfolioDetails', params: { id: image.id } }"
+						class="cursor-pointer clickable-container"
+					>
+						<div class="single-news">
+							<img
+								:src="image.thumb"
+								:alt="image.description"
+								class="cursor-pointer"
+							/>
+						</div>
+						<div class="overlay text-left p-6">
+							<div class="overlay-content font-bold text-base">
+								{{ image.name }}
+							</div>
+							<span>&#9866;</span>
+							<h3 class="responsive-title text-xs">{{ image.description }}</h3>
+						</div>
+					</router-link>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -82,5 +86,4 @@ export default {
 	background: #1d1f21;
 	display: block;
 }
-
 </style>

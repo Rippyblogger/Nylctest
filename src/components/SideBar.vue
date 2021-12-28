@@ -20,27 +20,28 @@
 			<i class="fas fa-times"></i>
 		</span>
 
-		<div class=" text-black flex flex-col text-center h-screen">
+		<div class="text-black flex flex-col text-center h-screen">
 			<div class="space-y-2">
-				<div 
+				<div
 					v-for="(men, index) in webMenu.menu_items"
-					:key="index"  class=" mt-32"
+					:key="index"
+					class="mt-32"
 				>
-					<SidebarLink class="w-full" :to="{path:men.url}" icon="fas fa-home">{{
+					<!-- <SidebarLink class="w-full" :to="men.url" icon="fas fa-home">{{
 						men.name
-					}}</SidebarLink>
+					}}</SidebarLink> -->
 
-					<!-- <router-link class="w-full"> {{men.name}} </router-link> -->
+					<router-link class="w-full" :to="men.url" :append="false" :replace="false"> {{men.name}} </router-link>
 				</div>
 
-				<p class="font-bold">{{webMenu.menu_text}}</p>
+				<p class="font-bold">{{ webMenu.menu_text }}</p>
 			</div>
 
-			<div class="mt-auto  w-16 ml-32 flex pb-10">
-				<a href="www.facebook.com" class="cursor-pointer">
+			<div class="mt-auto w-16 ml-32 flex pb-10">
+				<a href="https://www.facebook.com" class="cursor-pointer">
 					<img src="@/assets/icons/facebook.png" alt="facebook"
 				/></a>
-				<a href="www.instagram.com" class="cursor-pointer">
+				<a href="https://www.instagram.com" class="cursor-pointer">
 					<img src="@/assets/icons/instagram.png" alt="instagram"
 				/></a>
 			</div>
@@ -59,14 +60,13 @@ export default {
 		toggleSide() {
 			this.$store.commit("toggleSidebar");
 		},
-		testing(thi){
+		testing(thi) {
 			router.push(thi);
-		}
+		},
 	},
 	computed: {
 		...mapState(["collapsed", "webMenu"]),
 		...mapGetters(["sidebarWidth"]),
-		// ...mapActions(["getAllServices"]),
 	},
 	mounted() {
 		this.getAllMenu;

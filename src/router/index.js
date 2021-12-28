@@ -29,15 +29,14 @@ const routes = [
 				/*webpackChunkName: "DestinationDetails" */ "../views/PortfolioDetails"
 			),
 	},
-	{
-		path: "/:pathMatch(.*)*",
-		redirect: "/Home",
-	},
+	
 ];
 
 const router = createRouter({
 	history: createWebHistory(process.env.BASE_URL),
+	// history: createWebHistory(),
 	routes,
 });
+
 
 export default router;
