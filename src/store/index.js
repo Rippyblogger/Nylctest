@@ -4,7 +4,7 @@ import ContributionServices from "@/services/http-client";
 export default createStore({
 	state: {
 		collapsed: true,
-		sidebar_width: "350",
+		sidebar_width: "380",
 		sidebar_width_collapsed: 58,
 		sidebarWidth: "",
 		userPortfolio: [],

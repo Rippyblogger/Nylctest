@@ -2,13 +2,16 @@
 	<div>
 		<router-link
 			:to="to"
-			class="flex shrink-0 border-none items-center cursor-pointer relative font-normal text-3xl select-none border text-brand-white hover:text-white active:bg-brand-black active:text-white no-underline"
+			class="flex shrink-0 border-none items-center cursor-pointer relative font-normal text-3xl select-none border text-brand-white  active:bg-brand-black active:text-white no-underline"
 			:class="{ active: isActive }"
-		>
-			<!-- <i class="flex shrink-0 w-8 mr-4" :class="icon"></i> -->
+			@mouseover="hover = true"
+			:hover="hover"
+			@mouseleave="hover = false"
+		> 
 			<transition name="fade">
 				<span v-if="!collapsed" class="w-full">
-					<slot/>
+					<span v-if="hover" class="mr-10">&#9866;</span>
+					<slot />
 				</span>
 			</transition>
 		</router-link>
@@ -18,22 +21,26 @@
 <script>
 import { computed } from "@vue/reactivity";
 import { useRoute } from "vue-router";
-import { mapState, useStore  } from "vuex";
+import { mapState, useStore } from "vuex";
 
 export default {
 	name: "SidebarLink",
 	computed: {
 		...mapState(["collapsed"]),
 	},
+	data() {
+		return {
+			hover: false,
+		};
+	},
 	props: {
 		to: { type: String, required: true },
-		icon: { type: String, required: true },
 	},
 	setup(props) {
 		const store = useStore();
 		const route = useRoute();
 		const isActive = computed(() => route.path === props.to);
-		return { isActive, collapsed: computed(() => store.state.collapsed) }
+		return { isActive, collapsed: computed(() => store.state.collapsed) };
 	},
 };
 </script>

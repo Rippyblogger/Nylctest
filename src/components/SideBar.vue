@@ -12,7 +12,7 @@
 
 	<div
 		v-else
-		class="bg-brand-yellow fixed z-10 top-0 right-0 left-auto bottom-0 p-2 flex flex-col sidebar space-y-10"
+		class="bg-brand-yellow fixed z-10 top-0 right-0 left-auto bottom-0 p-2 flex flex-col sidebar justify-center space-y-10"
 		:style="{ width: sidebarWidth }"
 		data-aos="fade-left"
 	>
@@ -26,18 +26,19 @@
 					v-for="(men, index) in webMenu.menu_items"
 					:key="index"
 					class="mt-32"
-				>
-					<!-- <SidebarLink class="w-full" :to="men.url" icon="fas fa-home">{{
+				>	
+				
+					<SidebarLink class="w-full" :to="men.url" icon="fas fa-home"> {{
 						men.name
-					}}</SidebarLink> -->
-
-					<router-link class="w-full" :to="men.url" :append="false" :replace="false"> {{men.name}} </router-link>
+					}}</SidebarLink>
+					
+					<!-- <router-link  class="w-full" :to="men.url" :append="false" :replace="false"> {{men.name}} </router-link> -->
 				</div>
 
 				<p class="font-bold">{{ webMenu.menu_text }}</p>
 			</div>
 
-			<div class="mt-auto w-16 ml-32 flex pb-10">
+			<div class="mt-auto w-16 ml-36 flex pb-20">
 				<a href="https://www.facebook.com" class="cursor-pointer">
 					<img src="@/assets/icons/facebook.png" alt="facebook"
 				/></a>
@@ -55,6 +56,7 @@ import SidebarLink from "./SidebarLink.vue";
 
 export default {
 	name: "SideBar",
+	props:["hover"],
 	components: { SidebarLink },
 	methods: {
 		toggleSide() {

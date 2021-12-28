@@ -39,7 +39,7 @@
 				</div>
 			</div>
 
-			<div class="flex justify-center my-8">
+			<div class="flex justify-center my-8 py-8">
 				<ContactButton />
 			</div>
 		</div>
