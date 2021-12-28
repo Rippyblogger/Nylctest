@@ -7,6 +7,7 @@
 			@mouseover="hover = true"
 			:hover="hover"
 			@mouseleave="hover = false"
+			
 		> 
 			<transition name="fade">
 				<span v-if="!collapsed" class="w-full">

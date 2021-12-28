@@ -28,7 +28,7 @@
 					class="mt-32"
 				>	
 				
-					<SidebarLink class="w-full" :to="`/${men.url}`" icon="fas fa-home"> {{
+					<SidebarLink class="w-full" :to="`/${men.url}`" icon="fas fa-home" @click="toggleSide"> {{
 						men.name
 					}}</SidebarLink>
 					
