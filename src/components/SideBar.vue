@@ -28,11 +28,10 @@
 					class="mt-32"
 				>	
 				
-					<SidebarLink class="w-full" :to="men.url" icon="fas fa-home"> {{
+					<SidebarLink class="w-full" :to="`/${men.url}`" icon="fas fa-home"> {{
 						men.name
 					}}</SidebarLink>
 					
-					<!-- <router-link  class="w-full" :to="men.url" :append="false" :replace="false"> {{men.name}} </router-link> -->
 				</div>
 
 				<p class="font-bold">{{ webMenu.menu_text }}</p>
