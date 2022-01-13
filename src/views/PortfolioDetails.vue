@@ -41,7 +41,7 @@ export default {
 		};
 	},
 	computed: {
-		...mapState({images: "userPortfolio"}),
+		...mapState({images: "images"}),
 		details() {
 			return this.images.find((image) => image.id == this.portfolioId);
 		},

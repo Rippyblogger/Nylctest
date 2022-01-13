@@ -23,18 +23,21 @@
 		<div class="text-black flex flex-col text-center h-screen">
 			<div class="space-y-2">
 				<div
-					v-for="(men, index) in webMenu.menu_items"
+					v-for="(men, index) in menuData.menu_items"
 					:key="index"
 					class="mt-32"
-				>	
-				
-					<SidebarLink class="w-full" :to="`/${men.url}`" icon="fas fa-home" @click="toggleSide"> {{
-						men.name
-					}}</SidebarLink>
-					
+				>
+					<SidebarLink
+						class="w-full"
+						:to="`/${men.url}`"
+						icon="fas fa-home"
+						@click="toggleSide"
+					>
+						{{ men.name }}</SidebarLink
+					>
 				</div>
 
-				<p class="font-bold">{{ webMenu.menu_text }}</p>
+				<p class="font-bold">{{ menuData.menu_text }}</p>
 			</div>
 
 			<div class="mt-auto w-16 ml-36 flex pb-20">
@@ -55,7 +58,7 @@ import SidebarLink from "./SidebarLink.vue";
 
 export default {
 	name: "SideBar",
-	props:["hover"],
+	props: ["hover"],
 	components: { SidebarLink },
 	methods: {
 		toggleSide() {
@@ -71,6 +74,41 @@ export default {
 	},
 	mounted() {
 		this.getAllMenu;
+	},
+	data() {
+		return {
+			menuData: {
+				title: "Menu",
+				menu_items: [
+					{
+						id: 1,
+						name: "Home",
+						url: "#",
+					},
+					{
+						id: 2,
+						name: "About",
+						url: "#",
+					},
+					{
+						id: 3,
+						name: "Services",
+						url: "Services",
+					},
+					{
+						id: 4,
+						name: "portfolio",
+						url: "portfolio",
+					},
+					{
+						id: 5,
+						name: "Contact",
+						url: "#",
+					},
+				],
+				menu_text: "Just be yourself!",
+			},
+		};
 	},
 };
 </script>

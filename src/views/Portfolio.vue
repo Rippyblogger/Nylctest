@@ -50,7 +50,7 @@ export default {
 	},
 	components: { SideBar },
 	computed: {
-		...mapState({ images: "userPortfolio" }),
+		...mapState({ images: "images" }),
 		...mapActions(["getAllPortfolio"]),
 	},
 	mounted() {
